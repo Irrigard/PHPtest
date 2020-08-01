@@ -7,6 +7,5 @@ if (empty($_SESSION['auth'])) {
     $content = 'You are authorised as ' . $_SESSION['user']['login'];
     include 'elements/layout.php';
 }
-var_dump($_SESSION);
 
 
