@@ -8,6 +8,7 @@
     <div id="wrapper">
         <header>
             <a href="../index.php">Main</a>
+            <a href="../users.php">Users</a>
             <a href="../1.php">Page 1</a>
         </header>
         <main>
