@@ -40,6 +40,17 @@ if (empty($_SESSION['auth'])) {
             header('Location: personalArea.php'); die();
         }
     }
+
+    if (!empty($_POST['Password'])) {
+        if (password_verify($_POST['Password'], $hash)) {
+            $query = "DELETE FROM users WHERE id=$id";
+            mysqli_query($link, $query) or die(mysqli_error($link));
+            header('Location: auth.php'); die();
+        } else {
+            $_SESSION['message'] = ['text' => 'Wrong password', 'status' => 'error'];
+            header('Location: personalArea.php'); die();
+        }
+    }
     $title = 'Personal Area';
     ob_start();
     include 'elements/editForm.php';

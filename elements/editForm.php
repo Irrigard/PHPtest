@@ -22,3 +22,9 @@
     <input name="reNewPassword" type="password" placeholder="New password"><br><br>
     <input type="submit" name="submit" value="Отправить">
 </form>
+<br><br>
+<span>Delete personal page</span>
+<form action="" method="POST">
+    <input name="Password" type="password" placeholder="Password"><br><br>
+    <input type="submit" name="submit" value="Delete">
+</form>
