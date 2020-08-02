@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="style.css?v=4">
-
+<br><span>Change data</span>
 <form action="" method="POST">
     <input name="firstName" placeholder="First Name" value="<?php if(isset($firstName)) echo $firstName?>"><br><br>
     <input name="lastName" placeholder="Last Name" value="<?php if(isset($lastName)) echo $lastName?>"><br><br>
@@ -13,5 +13,12 @@
         <option <?php if(isset($city) and $city == 'London') echo 'selected '?> value="London">London</option>
         <option <?php if(isset($city) and $city == 'New York') echo 'selected '?> value="New York">New York</option>
     </select><br><br>
+    <input type="submit" name="submit" value="Отправить">
+</form><br><br>
+<span>Change password</span>
+<form action="" method="POST">
+    <input name="oldPassword" type="password" placeholder="Old password"><br><br>
+    <input name="newPassword" type="password" placeholder="New password"><br><br>
+    <input name="reNewPassword" type="password" placeholder="New password"><br><br>
     <input type="submit" name="submit" value="Отправить">
 </form>
