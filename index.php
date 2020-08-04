@@ -4,7 +4,9 @@ if (empty($_SESSION['auth'])) {
     header('Location: auth.php'); die();
 } else {
     $title = 'main page';
-    $content = 'You are authorised as ' . $_SESSION['user']['login'];
+    $content = '';
+    $userLogin = $_SESSION['user']['login'];
+    $userStatus = $_SESSION['user']['status'];
     include 'elements/layout.php';
 }
 

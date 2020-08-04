@@ -6,5 +6,7 @@
     } else {
         $content = '<a href="../auth.php">Logout</a>Page 1 content';
     }
+    $userLogin = $_SESSION['user']['login'];
+    $userStatus = $_SESSION['user']['status'];
     include 'elements/layout.php';
 

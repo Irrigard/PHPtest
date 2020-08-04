@@ -37,11 +37,11 @@
                                                         $dateOfBirth = implode('-', array_reverse($dobArray));
                                                         $city = $_POST['city'];
                                                         $password = password_hash($password, PASSWORD_DEFAULT);
-                                                        $query = "INSERT INTO users SET login='$login', password='$password', email='$email', dayOfBirth='$dateOfBirth', regDate='$regDate', city='$city'";
+                                                        $query = "INSERT INTO users SET login='$login', password='$password', email='$email', dayOfBirth='$dateOfBirth', regDate='$regDate', city='$city', status='user'";
                                                         mysqli_query($link, $query);
                                                         $id = mysqli_insert_id($link);
                                                         $_SESSION['auth'] = true;
-                                                        $_SESSION['user'] = ['login' => $login, 'id' => $id];
+                                                        $_SESSION['user'] = ['login' => $login, 'id' => $id, 'status' => 'user'];
                                                         $_SESSION['message'] = ['text' => 'Successful authorization', 'status' => 'success'];
                                                         header('Location: index.php'); die();
                                                     } else {

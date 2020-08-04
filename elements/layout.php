@@ -11,7 +11,9 @@
             <a href="../users.php">Users</a>
             <a href="../personalArea.php">PersonalArea</a>
             <a href="../auth.php">Logout</a>
-            <a href="../1.php">Page 1</a>
+            <?php if($_SESSION['user']['status'] === 'admin') echo '<a href="../admin.php">Admin</a>' ?>
+            <a href="../1.php">Page 1</a><br>
+            <span>You are authorised as <?= $userLogin ?>. Your status is <?= $userStatus ?>.</span><br>
         </header>
         <main>
             <?php include 'elements/info.php'?>

@@ -29,6 +29,8 @@ if (empty($_SESSION['auth'])) {
         $content .= '</table>';
     }
     $title = 'profile';
+    $userLogin = $_SESSION['user']['login'];
+    $userStatus = $_SESSION['user']['status'];
     include 'elements/layout.php';
 }
 

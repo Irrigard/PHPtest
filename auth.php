@@ -13,11 +13,13 @@ if (!empty($_POST['password']) and !empty($_POST['login'])) {
 
     // Преобразуем ответ из БД в нормальный массив PHP:
     $user = mysqli_fetch_assoc($result);
+    $id = $user['id'];
+    $status = $user['status'];
     if(!empty($user)) {
         $hash = $user['password'];
         if (password_verify($_POST['password'], $hash)) {
             $_SESSION['auth'] = true;
-            $_SESSION['user'] = ['login' => $login, 'id' => $user];
+            $_SESSION['user'] = ['login' => $login, 'id' => $id, 'status' => $status];
             $_SESSION['message'] = ['text' => 'Successful authorization', 'status' => 'success'];
             header('Location: index.php'); die();
         } else {

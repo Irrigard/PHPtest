@@ -55,5 +55,7 @@ if (empty($_SESSION['auth'])) {
     ob_start();
     include 'elements/editForm.php';
     $content = ob_get_clean();
+    $userLogin = $_SESSION['user']['login'];
+    $userStatus = $_SESSION['user']['status'];
     include 'elements/layout.php';
 }
