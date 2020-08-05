@@ -37,7 +37,7 @@
                                                         $dateOfBirth = implode('-', array_reverse($dobArray));
                                                         $city = $_POST['city'];
                                                         $password = password_hash($password, PASSWORD_DEFAULT);
-                                                        $query = "INSERT INTO users SET login='$login', password='$password', email='$email', dayOfBirth='$dateOfBirth', regDate='$regDate', city='$city', status='user'";
+                                                        $query = "INSERT INTO users SET login='$login', password='$password', email='$email', dayOfBirth='$dateOfBirth', regDate='$regDate', city='$city', status='user', banned='0'";
                                                         mysqli_query($link, $query);
                                                         $id = mysqli_insert_id($link);
                                                         $_SESSION['auth'] = true;

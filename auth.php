@@ -18,10 +18,14 @@ if (!empty($_POST['password']) and !empty($_POST['login'])) {
     if(!empty($user)) {
         $hash = $user['password'];
         if (password_verify($_POST['password'], $hash)) {
-            $_SESSION['auth'] = true;
-            $_SESSION['user'] = ['login' => $login, 'id' => $id, 'status' => $status];
-            $_SESSION['message'] = ['text' => 'Successful authorization', 'status' => 'success'];
-            header('Location: index.php'); die();
+            if ($user['banned'] === '0') {
+                $_SESSION['auth'] = true;
+                $_SESSION['user'] = ['login' => $login, 'id' => $id, 'status' => $status];
+                $_SESSION['message'] = ['text' => 'Successful authorization', 'status' => 'success'];
+                header('Location: index.php'); die();
+            } else {
+                $_SESSION['message'] = ['text' => 'You are banned', 'status' => 'error', 'input' => 'password'];
+            }
         } else {
             $_SESSION['message'] = ['text' => 'Incorrect password', 'status' => 'error', 'input' => 'password'];
         }

@@ -25,16 +25,35 @@ function changeStatus($link) {
         header('Location: admin.php'); die();
     }
 }
+function ban($link) {
+    if (isset($_GET['ban'])) {
+        $id = $_GET['ban'];
+        $query = "UPDATE users SET banned='1' WHERE id=$id";
+        mysqli_query($link, $query) or die(mysqli_error($link));
+        $_SESSION['message'] = ['text' => 'User banned successfully', 'status' => 'success'];
+        header('Location: admin.php'); die();
+    }
+    if (isset($_GET['unBan'])) {
+        $id = $_GET['unBan'];
+        $query = "UPDATE users SET banned='0' WHERE id=$id";
+        mysqli_query($link, $query) or die(mysqli_error($link));
+        $_SESSION['message'] = ['text' => 'User unbanned successfully', 'status' => 'success'];
+        header('Location: admin.php'); die();
+    }
+}
+ban($link);
 deleteUser($link);
 changeStatus($link);
 if ($_SESSION['auth'] === true and $_SESSION['user']['status'] === 'admin') {
-    $query = "SELECT id, login, status FROM users";
+    $query = "SELECT id, login, status, banned FROM users";
     $result = mysqli_query($link, $query) or die(mysqli_error($link));
     for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row);
     $content = '<table><tr>
                         <th>login</th>
                         <th>status</th>
-                        <th>Change status</th>
+                        <th>change status</th>
+                        <th>banned</th>
+                        <th>ban</th>
                         <th>del</th>
                         </tr>';
     foreach ($data as $user) {
@@ -42,6 +61,7 @@ if ($_SESSION['auth'] === true and $_SESSION['user']['status'] === 'admin') {
             $delAhref = '';
             $rowColor = " style='background-color: red;'";
             $changeDirection = '';
+            $ban = '';
         } else {
             $delAhref = "<a href=\"admin.php?del={$user['id']}\">Delete</a>";
             if ($user['status'] === 'user') {
@@ -52,12 +72,20 @@ if ($_SESSION['auth'] === true and $_SESSION['user']['status'] === 'admin') {
                 $rowColor = " style='background-color: red;'";
                 $changeDirection = "<a href=\"admin.php?down={$user['id']}\">Downgrade</a>";
             }
+            if ($user['banned'] === '0') {
+                $ban = "<a href=\"admin.php?ban={$user['id']}\">Ban</a>";
+            }
+            if ($user['banned'] === '1') {
+                $ban = "<a href=\"admin.php?unBan={$user['id']}\">unBan</a>";
+            }
         }
 
         $content .= "<tr>
             <td{$rowColor}>{$user['login']}</td>
             <td{$rowColor}>{$user['status']}</a></td>
             <td{$rowColor}>{$changeDirection}</a></td>
+            <td{$rowColor}>{$user['banned']}</a></td>
+            <td{$rowColor}>{$ban}</a></td>
             <td{$rowColor}>{$delAhref}</td>
             </tr>";
     }
