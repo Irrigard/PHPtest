@@ -8,7 +8,7 @@ if (!empty($_POST['password']) and !empty($_POST['login'])) {
 
 
     // Формируем и отсылаем SQL запрос:
-    $query = "SELECT * FROM users WHERE login='$login'";
+    $query = "SELECT users.id as id, users.password as password, users.banned as banned, status.name as status FROM users LEFT JOIN status ON users.status_id = status.id WHERE login='$login'";
     $result = mysqli_query($link, $query);
 
     // Преобразуем ответ из БД в нормальный массив PHP:

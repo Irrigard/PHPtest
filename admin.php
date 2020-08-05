@@ -12,14 +12,14 @@ function deleteUser($link) {
 function changeStatus($link) {
     if (isset($_GET['up'])) {
         $id = $_GET['up'];
-        $query = "UPDATE users SET status='admin' WHERE id=$id";
+        $query = "UPDATE users SET status_id='1' WHERE id=$id";
         mysqli_query($link, $query) or die(mysqli_error($link));
         $_SESSION['message'] = ['text' => 'User promoted successfully', 'status' => 'success'];
         header('Location: admin.php'); die();
     }
     if (isset($_GET['down'])) {
         $id = $_GET['down'];
-        $query = "UPDATE users SET status='user' WHERE id=$id";
+        $query = "UPDATE users SET status_id='2' WHERE id=$id";
         mysqli_query($link, $query) or die(mysqli_error($link));
         $_SESSION['message'] = ['text' => 'User downgraded successfully', 'status' => 'success'];
         header('Location: admin.php'); die();
@@ -45,7 +45,7 @@ ban($link);
 deleteUser($link);
 changeStatus($link);
 if ($_SESSION['auth'] === true and $_SESSION['user']['status'] === 'admin') {
-    $query = "SELECT id, login, status, banned FROM users";
+    $query = "SELECT users.id as id, login, status.name as status, banned FROM users LEFT JOIN status ON users.status_id = status.id ORDER BY users.id";
     $result = mysqli_query($link, $query) or die(mysqli_error($link));
     for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row);
     $content = '<table><tr>
