@@ -13,3 +13,4 @@
     //Устанавливаем кодировку (не обязательно, но поможет избежать проблем):
     mysqli_query($link, "SET NAMES 'utf8'");
     session_start();
+    require_once 'classes/Data.php';

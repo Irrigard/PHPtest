@@ -21,6 +21,9 @@
         </main>
         <footer>
             footer
+            <?php
+                $date1 = new Date();
+            ?>
         </footer>
     </div>
 </body>
