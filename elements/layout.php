@@ -22,10 +22,9 @@
         <footer>
             footer
             <?php
-                $date1 = new Date();
-                $date2 = new Date('2025-03-11');
-                $interval1 = new Interval($date1, $date2);
-                echo $interval1;
+                $file1 = new File('../1.txt');
+                var_dump($file1);
+                echo $file1->getPath();
             ?>
         </footer>
     </div>
