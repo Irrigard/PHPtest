@@ -23,6 +23,9 @@
             footer
             <?php
                 $date1 = new Date();
+                $date2 = new Date('2025-03-11');
+                $interval1 = new Interval($date1, $date2);
+                echo $interval1;
             ?>
         </footer>
     </div>

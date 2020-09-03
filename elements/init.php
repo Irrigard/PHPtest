@@ -14,3 +14,4 @@
     mysqli_query($link, "SET NAMES 'utf8'");
     session_start();
     require_once 'classes/Data.php';
+    require_once 'classes/Interval.php';
