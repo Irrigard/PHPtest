@@ -8,7 +8,7 @@
 
 interface iFile
 {
-    public function __constructor($filePath);
+    public function __construct($filePath);
 
     public function getPath(); // путь к файлу
     public function getDir();  // папка файла

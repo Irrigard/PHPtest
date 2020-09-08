@@ -22,9 +22,8 @@
         <footer>
             footer
             <?php
-                $file1 = new File('../1.txt');
-                var_dump($file1);
-                echo $file1->getPath();
+                $file1 = new File('../3.txt');
+                $file1->replace('');
             ?>
         </footer>
     </div>

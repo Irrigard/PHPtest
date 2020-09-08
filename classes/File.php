@@ -9,7 +9,7 @@
 class File implements iFile
 {
     private $filePath;
-    public function __constructor($filePath)
+    public function __construct ($filePath)
     {
         $this->filePath = $filePath;
     }
@@ -19,15 +19,30 @@ class File implements iFile
     }
     public function getDir()
     {
-        return true;// TODO: Implement getDir() method.
+        if (preg_match('#(.+/)(.+)(\..+)#', $this->filePath, $matches))
+        {
+            return $matches[1];
+        } else {
+            return '';
+        }
     }
     public function getName()
     {
-        return true;// TODO: Implement getName() method.
+        if (preg_match('#(.+/)?(.+)(\..+)#', $this->filePath, $matches))
+        {
+            return $matches[2];
+        } else {
+            return '';
+        }
     }
     public function getExt()
     {
-        return true;// TODO: Implement getExt() method.
+        if (preg_match('#(.+/)?(.+)(\..+)#', $this->filePath, $matches))
+        {
+            return $matches[3];
+        } else {
+            return '';
+        }
     }
     public function getSize()
     {
@@ -38,30 +53,65 @@ class File implements iFile
     }
     public function getText()
     {
-        return true;// TODO: Implement getText() method.
+        return file_get_contents($this->filePath);
     }
     public function setText($text)
     {
-        return true;// TODO: Implement setText() method.
+        if (file_put_contents($this->filePath, $text) !== false)
+        {
+            return true;
+        } else {
+            return false;
+        }
     }
     public function appendText($text)
     {
-        return true;// TODO: Implement appendText() method.
+        $curent = $this->getText();
+        $curent .= $text;
+        if ($this->setText($curent) === true){
+            return true;
+        } else {
+            return false;
+        }
     }
     public function copy($copyPath)
     {
-        return true;// TODO: Implement copy() method.
+        if ($copyPath === $this->filePath)
+        {
+            return false;
+        }
+        if (file_put_contents($copyPath, $this->getText()))
+        {
+            return true;
+        } else {
+            return false;
+        }
     }
     public function delete()
     {
-        return true;// TODO: Implement delete() method.
+        return unlink($this->filePath);
     }
     public function rename($newName)
     {
-        return true;// TODO: Implement rename() method.
+        preg_match('#(.+/)?(.+)(\..+)#', $this->filePath, $matches);
+        $fullName = $matches[1] . $newName;
+        return rename($this->filePath, $fullName);
     }
     public function replace($newPath)
     {
-        return true;// TODO: Implement replace() method.
+        preg_match('#(.+/)?(.+)(\..+)#', $newPath, $matches);
+        if (isset($matches[1])){
+            $path = $matches[1];
+        } else {
+            $path = '';
+        }
+        if ($this->copy($path . $this->getName() . $this->getExt()))
+        {
+            $this->delete();
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }
