@@ -22,8 +22,8 @@
         <footer>
             footer
             <?php
-                $file1 = new File('../3.txt');
-                $file1->replace('');
+                $tag1 = new Tag('div');
+                echo $tag1->setAttr('style', 'background-color:green;')->setAttr('id', 'test')->open() . 'test' . $tag1->close();
             ?>
         </footer>
     </div>
