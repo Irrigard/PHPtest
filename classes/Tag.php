@@ -6,15 +6,52 @@
  * Time: 23:04
  */
 
-class Tag
+class Tag implements iTag
 {
     private $name;
     private $attrs;
+    private $text;
 
-    public function __construct($name, $attrs = [])
+    public function __construct($name, $attrs = [], $text = '')
     {
         $this->name = $name;
         $this->attrs = $attrs;
+        $this->text = $text;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    public function getAttrs()
+    {
+        return $this->attrs;
+    }
+
+    public function show()
+    {
+        return $this->open() . $this->getText() . $this->close();
+    }
+
+    public function setText($text)
+    {
+        $this->text = $text;
+        return $this;
+    }
+
+    public function getAttr($attr)
+    {
+        if (isset($this->attrs[$attr])){
+            return $this->attrs[$attr];
+        } else {
+            return null;
+        }
     }
 
     public function setAttr($name, $value = true)

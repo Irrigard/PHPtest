@@ -17,4 +17,5 @@
     require_once 'classes/Interval.php';
     require_once 'classes/iFile.php';
     require_once 'classes/File.php';
+    require_once 'classes/iTag.php';
     require_once 'classes/Tag.php';
