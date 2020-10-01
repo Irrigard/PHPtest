@@ -22,8 +22,9 @@
         <footer>
             footer
             <?php
-                $tag1 = new Tag('button', [], 'test');
-                echo $tag1->setAttr('style', 'background-color:green;')->setAttr('id', 'test')->setAttr('disabled')->show();
+                $img1 = new Image();
+                $attrsArr = ['width'=>300, 'height'=>200];
+                echo $img1->setAttr('src', 'img.png')->setAttrs($attrsArr);
             ?>
         </footer>
     </div>

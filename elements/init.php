@@ -19,3 +19,4 @@
     require_once 'classes/File.php';
     require_once 'classes/iTag.php';
     require_once 'classes/Tag.php';
+    require_once 'classes/Image.php';
