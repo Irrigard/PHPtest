@@ -23,6 +23,14 @@ class Tag
         return $this;
     }
 
+    public function setAttrs($attrs)
+    {
+        foreach ($attrs as $key=>$elem){
+            $this->setAttr($key, $elem);
+        }
+        return $this;
+    }
+
     public function removeAttr($name)
     {
         if (array_key_exists($name, $this->attrs))
