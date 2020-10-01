@@ -17,7 +17,7 @@ class Tag
         $this->attrs = $attrs;
     }
 
-    public function setAttr($name, $value)
+    public function setAttr($name, $value = true)
     {
         $this->attrs[$name] = $value;
         return $this;
@@ -58,7 +58,11 @@ class Tag
             $outStr = '';
             foreach ($attrs as $key=>$attr)
             {
-                $outStr .= " $key=\"$attr\"";
+                if ($attr === true){
+                    $outStr .= " $key";
+                } else {
+                    $outStr .= " $key=\"$attr\"";
+                }
             }
             return $outStr;
         } else {

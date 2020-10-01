@@ -22,9 +22,8 @@
         <footer>
             footer
             <?php
-                $tag1 = new Tag('div');
-                $att = ['style'=>'background-color:green;', 'id'=>'test'];
-                echo $tag1->setAttrs($att)->open() . 'test' . $tag1->close();
+                $tag1 = new Tag('button');
+                echo $tag1->setAttr('style', 'background-color:green;')->setAttr('id', 'test')->setAttr('disabled')->open() . 'test' . $tag1->close();
             ?>
         </footer>
     </div>
