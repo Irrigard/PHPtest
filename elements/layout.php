@@ -24,6 +24,10 @@
             <?php
                 $tag1 = new Tag('button');
                 echo $tag1->setAttr('style', 'background-color:green;')->setAttr('id', 'test')->setAttr('disabled')->open() . 'test' . $tag1->close();
+            echo (new Tag('input'))
+                ->setAttr('class', 'eee zzz kkk') // добавим 3 класса
+                ->removeClass('zzz') // удалим класс 'zzz'
+                ->open(); // выведет <input class="eee kkk">
             ?>
         </footer>
     </div>

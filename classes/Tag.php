@@ -31,6 +31,33 @@ class Tag
         return $this;
     }
 
+    public function addClass($className)
+    {
+        if (!isset($this->attrs['class'])){
+            $this->setAttr('class', $className);
+        } else {
+            $classArr = explode(' ', $this->attrs['class']);
+            if(!in_array($className, $classArr)){
+                $classArr[] = $className;
+            }
+            $this->attrs['class'] = implode(' ', $classArr);
+        }
+        return $this;
+    }
+
+    public function removeClass($className)
+    {
+        if (isset($this->attrs['class']))
+        {
+            $classNames = explode(' ', $this->attrs['class']);
+            if (in_array($className, $classNames))
+            {
+                $this->attrs['class'] = implode(' ', $this->removeElem($className, $classNames));
+            }
+        }
+        return $this;
+    }
+
     public function removeAttr($name)
     {
         if (array_key_exists($name, $this->attrs))
@@ -68,6 +95,13 @@ class Tag
         } else {
             return '';
         }
+    }
+
+    private function removeElem($elem, $arr)
+    {
+        $key = array_search($elem, $arr);
+        array_splice($arr, $key, 1);
+        return $arr;
     }
 
 }
