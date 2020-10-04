@@ -25,3 +25,6 @@
     require_once 'classes/HtmlList.php';
     require_once 'classes/Ol.php';
     require_once 'classes/Ul.php';
+    require_once 'classes/Form.php';
+    require_once 'classes/Input.php';
+    require_once 'classes/Submit.php';
