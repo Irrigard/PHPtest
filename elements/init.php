@@ -28,3 +28,6 @@
     require_once 'classes/Form.php';
     require_once 'classes/Input.php';
     require_once 'classes/Submit.php';
+    require_once 'classes/Password.php';
+    require_once 'classes/Hidden.php';
+    require_once 'classes/TextArea.php';

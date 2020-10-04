@@ -26,18 +26,12 @@
             $form = (new Form)->setAttrs(['action' => '', 'method' => 'GET']);
 
             echo $form->open();
-            for ($i=1; $i<6;$i++)
-            echo (new Input)->setAttr('name', $i);
-            echo new Submit;
+            echo (new Input)   ->setAttr('name', 'login');
+            echo (new Textarea)->setAttr('name', 'message');
+            echo (new Password)->setAttr('name', 'passw');
+	        echo new Submit;
             echo $form->close();
-            if (isset($_GET['1']) and isset($_GET['2']) and isset($_GET['3']) and isset($_GET['4']) and isset($_GET['5']))
-            {
-                $sum = 0;
-                for ($i = 1; $i<6; $i++){
-                    $sum += $_GET[$i];
-                }
-                echo $sum;
-            }
+
 
             ?>
         </footer>
