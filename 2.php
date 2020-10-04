@@ -4,7 +4,9 @@
     if (empty($_SESSION['auth'])) {
         $content = 'You are not logged in<br><a href="../auth.php">Login</a>';
     } else {
-        $content = '<a href="../auth.php">Logout</a>Page 2 content';
+        $content = 'Page 2 content';
     }
+    $userLogin = $_SESSION['user']['login'];
+    $userStatus = $_SESSION['user']['status'];
     include 'elements/layout.php';
 

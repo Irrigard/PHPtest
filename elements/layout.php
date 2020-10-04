@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
     <title><?= $title ?></title>
 </head>
 <body>
@@ -14,6 +14,7 @@
             <?php if($_SESSION['user']['status'] === 'admin') echo '<a href="../admin.php">Admin</a>' ?>
             <a href="../1.php">Page 1</a><br>
             <span>You are authorised as <?= $userLogin ?>. Your status is <?= $userStatus ?>.</span><br>
+            <?php include 'elements/menu.php'?>
         </header>
         <main>
             <?php include 'elements/info.php'?>
@@ -22,9 +23,8 @@
         <footer>
             footer
             <?php
-                $img1 = new Image();
-                $attrsArr = ['width'=>300, 'height'=>200];
-                echo $img1->setAttr('src', 'img.png')->setAttrs($attrsArr);
+
+
             ?>
         </footer>
     </div>

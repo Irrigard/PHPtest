@@ -11,3 +11,11 @@ th, td {border: 1px solid grey; padding: 5px;}
 .error{
     color: red;
 }
+
+a{
+    text-decoration: none;
+}
+
+.active{
+    text-decoration: underline;
+}
