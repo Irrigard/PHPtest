@@ -31,3 +31,4 @@
     require_once 'classes/Password.php';
     require_once 'classes/Hidden.php';
     require_once 'classes/TextArea.php';
+    require_once 'classes/CheckBox.php';

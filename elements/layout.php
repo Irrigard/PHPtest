@@ -27,8 +27,8 @@
 
             echo $form->open();
             echo (new Input)   ->setAttr('name', 'login');
-            echo (new Textarea)->setAttr('name', 'message');
             echo (new Password)->setAttr('name', 'passw');
+            echo (new Checkbox)->setAttr('name', 'checkbox');
 	        echo new Submit;
             echo $form->close();
 
