@@ -21,3 +21,7 @@
     require_once 'classes/Tag.php';
     require_once 'classes/Image.php';
     require_once 'classes/Link.php';
+    require_once 'classes/ListItem.php';
+    require_once 'classes/HtmlList.php';
+    require_once 'classes/Ol.php';
+    require_once 'classes/Ul.php';

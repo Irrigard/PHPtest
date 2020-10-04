@@ -23,7 +23,13 @@
         <footer>
             footer
             <?php
+            $list = new Ul;
 
+            echo $list
+                ->addItem((new ListItem())->setText('item1'))
+                ->addItem((new ListItem())->setText('item2'))
+                ->addItem((new ListItem())->setText('item3'))
+                ->show();
 
             ?>
         </footer>
