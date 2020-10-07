@@ -28,7 +28,9 @@
             echo $form->open();
             echo (new Input)   ->setAttr('name', 'login');
             echo (new Password)->setAttr('name', 'passw');
-            echo (new Checkbox)->setAttr('name', 'checkbox');
+            echo (new Radio())->setAttr('name', 'radio')->setAttr('value', '1');
+            echo (new Radio())->setAttr('name', 'radio')->setAttr('value', '2');
+            echo (new Radio())->setAttr('name', 'radio')->setAttr('value', '3');
 	        echo new Submit;
             echo $form->close();
 
