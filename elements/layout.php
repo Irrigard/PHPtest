@@ -28,9 +28,8 @@
             echo $form->open();
             echo (new Input)   ->setAttr('name', 'login');
             echo (new Password)->setAttr('name', 'passw');
-            echo (new Radio())->setAttr('name', 'radio')->setAttr('value', '1');
-            echo (new Radio())->setAttr('name', 'radio')->setAttr('value', '2');
-            echo (new Radio())->setAttr('name', 'radio')->setAttr('value', '3');
+            echo (new Select())->setAttr('name', 'list')->AddOption( (new Option())->setText('item1'))->AddOption( (new Option())->setText('item2'))
+                ->AddOption( (new Option())->setText('item3') );
 	        echo new Submit;
             echo $form->close();
 
