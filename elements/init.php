@@ -35,3 +35,4 @@
     require_once 'classes/Radio.php';
     require_once 'classes/Select.php';
     require_once 'classes/Option.php';
+    require_once 'classes/TagHelper.php';

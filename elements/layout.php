@@ -23,15 +23,8 @@
         <footer>
             footer
             <?php
-            $form = (new Form)->setAttrs(['action' => '', 'method' => 'GET']);
-
-            echo $form->open();
-            echo (new Input)   ->setAttr('name', 'login');
-            echo (new Password)->setAttr('name', 'passw');
-            echo (new Select())->setAttr('name', 'list')->AddOption( (new Option())->setText('item1'))->AddOption( (new Option())->setText('item2'))
-                ->AddOption( (new Option())->setText('item3') );
-	        echo new Submit;
-            echo $form->close();
+            $th = new TagHelper();
+            echo $th->show('div', 'text', ['class'=>'test']);
 
 
             ?>
