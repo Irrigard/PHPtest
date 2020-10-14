@@ -7,13 +7,12 @@ if (empty($_SESSION['auth'])) {
     $content = '';
     $userLogin = $_SESSION['user']['login'];
     $userStatus = $_SESSION['user']['status'];
-    $cs = new CookieShell();
-    if ($cs->exists('f5'))
+    $ss = new SessionShell();
+    if ($ss->exists('f5'))
     {
-        $i = $cs->get('f5');
-        $cs->set('f5', $cs->get('f5') + 1, 3600);
+        $ss->set('f5', $ss->get('f5') + 1);
     } else {
-        $cs->set('f5', 0, 3600);
+        $ss->set('f5', 0);
     }
     include 'elements/layout.php';
 }

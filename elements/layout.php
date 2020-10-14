@@ -23,7 +23,7 @@
         <footer>
             footer
             <?php
-            echo $cs->get('f5');
+            echo $ss->get('f5');
 
 
             ?>

@@ -38,3 +38,4 @@
     require_once 'classes/TagHelper.php';
     require_once 'classes/FormHelper.php';
     require_once 'classes/CookieShell.php';
+    require_once 'classes/SessionShell.php';
