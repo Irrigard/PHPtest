@@ -23,7 +23,8 @@
         <footer>
             footer
             <?php
-            echo $ss->get('f5');
+            $fm = new FileManipulator();
+            var_dump($fm->delete('renamedFile.txt'));
 
 
             ?>

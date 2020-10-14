@@ -39,3 +39,4 @@
     require_once 'classes/FormHelper.php';
     require_once 'classes/CookieShell.php';
     require_once 'classes/SessionShell.php';
+    require_once 'classes/FileManipulator.php';
