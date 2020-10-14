@@ -36,3 +36,4 @@
     require_once 'classes/Select.php';
     require_once 'classes/Option.php';
     require_once 'classes/TagHelper.php';
+    require_once 'classes/FormHelper.php';

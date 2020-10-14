@@ -23,8 +23,21 @@
         <footer>
             footer
             <?php
-            $th = new TagHelper();
-            echo $th->show('div', 'text', ['class'=>'test']);
+            $fh = new FormHelper();
+            echo $fh->openForm(['action' => '', 'method' => 'GET']);
+            echo $fh->input(['name' => 'year']);
+            echo $fh->checkbox(['name' => 'check']);
+            echo $fh->textArea('text', ['name' => 'text']);
+            echo $fh->select(
+                ['name' => 'list', 'class' => 'eee'],
+                [
+                    ['text' => 'item1', 'attrs' => ['value' => '1']],
+                    ['text' => 'item2', 'attrs' => ['value' => '2']],
+                    ['text' => 'item3', 'attrs' => ['value' => '3', 'class' => 'last']],
+                ]
+            );
+            echo $fh->submit();
+            echo $fh->closeForm();
 
 
             ?>
