@@ -37,3 +37,4 @@
     require_once 'classes/Option.php';
     require_once 'classes/TagHelper.php';
     require_once 'classes/FormHelper.php';
+    require_once 'classes/CookieShell.php';
