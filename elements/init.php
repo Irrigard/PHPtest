@@ -40,3 +40,4 @@
     require_once 'classes/CookieShell.php';
     require_once 'classes/SessionShell.php';
     require_once 'classes/FileManipulator.php';
+    require_once 'classes/Validator.php';

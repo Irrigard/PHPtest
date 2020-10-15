@@ -23,8 +23,8 @@
         <footer>
             footer
             <?php
-            $fm = new FileManipulator();
-            var_dump($fm->delete('renamedFile.txt'));
+            $vld = new Validator();
+            var_dump($vld->isDomain('яндекс.ру'));
 
 
             ?>
