@@ -23,8 +23,10 @@
         <footer>
             footer
             <?php
-            $vld = new Validator();
-            var_dump($vld->isDomain('яндекс.ру'));
+            $dbSh = new DatabaseShell('localhost', 'root', '', 'test');
+           // echo $dbSh->selectAll('users', 'where id >= 3');
+
+
 
 
             ?>

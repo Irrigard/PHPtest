@@ -41,3 +41,4 @@
     require_once 'classes/SessionShell.php';
     require_once 'classes/FileManipulator.php';
     require_once 'classes/Validator.php';
+    require_once 'classes/DatabaseShell.php';
